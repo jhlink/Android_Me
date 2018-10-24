@@ -18,13 +18,14 @@ package com.example.android.android_me.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.example.android.android_me.R;
 
 // This activity will display a custom Android image composed of three body parts: head, body, and legs
 public class AndroidMeActivity extends AppCompatActivity {
 
-    // TODO (1) Create a layout file that displays one body part image named fragment_body_part.xml
+    // DONE (1) Create a layout file that displays one body part image named fragment_body_part.xml
         // This layout should contain a single ImageView
 
     // TODO (2) Create a new class called BodyPartFragment to display an image of an Android-Me body part
