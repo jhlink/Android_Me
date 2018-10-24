@@ -12,12 +12,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        MasterListFragment masterListFragment = new MasterListFragment();
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.main_activity_frag, masterListFragment)
-            .commit();
+        setContentView(R.layout.activity_main);
     }
 }
