@@ -36,7 +36,7 @@ public class AndroidMeActivity extends AppCompatActivity {
         // The adapter takes as parameters (Context context, List<Integer> imageIds)
 
     // After creating the fragment..
-    // TODO (4) Create a new Activity named MainActivity and a corresponding layout file that displays a MasterListFragment
+    // DONE (4) Create a new Activity named MainActivity and a corresponding layout file that displays a MasterListFragment
         // Remember, to display a static fragment in a layout file, use the <fragment> tag
 
 
