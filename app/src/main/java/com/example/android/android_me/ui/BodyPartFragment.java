@@ -26,9 +26,14 @@ import android.widget.ImageView;
 import com.example.android.android_me.R;
 import com.example.android.android_me.data.AndroidImageAssets;
 
+import java.util.List;
+
 public class BodyPartFragment extends Fragment {
 
-    // TODO (1) Create a setter method and class variable to set and store of a list of image resources
+
+    // DONE (1) Create a setter method and class variable to set and store of a list of image resources
+    private List<Integer> mImageIds;
+
 
     // TODO (2) Create another setter method and variable to track and set the index of the list item to display
         // ex. index = 0 is the first image id in the given list , index 1 is the second, and so on
@@ -59,6 +64,10 @@ public class BodyPartFragment extends Fragment {
 
         // Return the rootView
         return rootView;
+    }
+
+    public void setmImageIds(List<Integer> listOfResourceIds) {
+        mImageIds = listOfResourceIds;
     }
 
 }
