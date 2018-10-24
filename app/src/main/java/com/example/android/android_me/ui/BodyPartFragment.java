@@ -34,9 +34,9 @@ public class BodyPartFragment extends Fragment {
     // DONE (1) Create a setter method and class variable to set and store of a list of image resources
     private List<Integer> mImageIds;
 
-
-    // TODO (2) Create another setter method and variable to track and set the index of the list item to display
+    // DONE (2) Create another setter method and variable to track and set the index of the list item to display
         // ex. index = 0 is the first image id in the given list , index 1 is the second, and so on
+    private int listItemIndex;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
@@ -68,6 +68,10 @@ public class BodyPartFragment extends Fragment {
 
     public void setmImageIds(List<Integer> listOfResourceIds) {
         mImageIds = listOfResourceIds;
+    }
+
+    public void setListItemIndex(int listItemIndex) {
+        this.listItemIndex = listItemIndex;
     }
 
 }
