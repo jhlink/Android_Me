@@ -18,18 +18,20 @@ public class MasterListFragment extends Fragment {
 
     public MasterListFragment() {}
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        // Inflate the Android-Me fragment layout
+        View rootView = inflater.inflate(R.layout.fragment_master_list, container, false);
 
-        GridView gridView = (GridView) inflater.inflate(R.layout.fragment_master_list, container);
+        // Get a reference to the ImageView in the fragment layout
+        final GridView gridView = (GridView) rootView.findViewById(R.id.gv_fragment_master_list);
 
-        Context context = container.getContext();
+        Context context = getContext();
         List<Integer> allImageIds = AndroidImageAssets.getAll();
         MasterListAdapter masterListAdapter = new MasterListAdapter(context, allImageIds);
         gridView.setAdapter(masterListAdapter);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return rootView;
     }
 }
