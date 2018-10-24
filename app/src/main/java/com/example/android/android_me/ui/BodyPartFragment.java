@@ -18,6 +18,7 @@ package com.example.android.android_me.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ import java.util.List;
 public class BodyPartFragment extends Fragment {
 
 
+    private static final String TAG = BodyPartFragment.class.getSimpleName();
     // DONE (1) Create a setter method and class variable to set and store of a list of image resources
     private List<Integer> mImageIds;
 
@@ -59,8 +61,13 @@ public class BodyPartFragment extends Fragment {
         // Set the image to the first in our list of head images
         imageView.setImageResource(AndroidImageAssets.getHeads().get(0));
 
-        // TODO (3) If a list of image ids exists, set the image resource to the correct item in that list
+        // DONE (3) If a list of image ids exists, set the image resource to the correct item in that list
         // Otherwise, create a Log statement that indicates that the list was not found
+        if (mImageIds != null) {
+            imageView.setImageResource(AndroidImageAssets.getHeads().get(listItemIndex));
+        } else {
+            Log.d(TAG, "Error: List of image of ids not found.");
+        }
 
         // Return the rootView
         return rootView;
