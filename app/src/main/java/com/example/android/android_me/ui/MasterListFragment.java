@@ -1,5 +1,6 @@
 package com.example.android.android_me.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,9 +25,10 @@ public class MasterListFragment extends Fragment {
 
         GridView gridView = (GridView) inflater.inflate(R.layout.fragment_master_list, container);
 
-        MasterListAdapter masterListAdapter = new MasterListAdapter(container.getContext(),         AndroidImageAssets.getAll());
+        Context context = container.getContext();
+        List<Integer> allImageIds = AndroidImageAssets.getAll();
+        MasterListAdapter masterListAdapter = new MasterListAdapter(context, allImageIds);
         gridView.setAdapter(masterListAdapter);
-)
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
