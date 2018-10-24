@@ -61,7 +61,7 @@ public class BodyPartFragment extends Fragment {
         // DONE (3) If a list of image ids exists, set the image resource to the correct item in that list
         // Otherwise, create a Log statement that indicates that the list was not found
         if (mImageIds != null) {
-            imageView.setImageResource(AndroidImageAssets.getHeads().get(listItemIndex));
+            imageView.setImageResource(mImageIds.get(listItemIndex));
         } else {
             Log.d(TAG, "Error: List of image of ids not found.");
         }
