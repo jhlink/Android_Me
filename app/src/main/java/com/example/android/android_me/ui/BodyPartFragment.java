@@ -26,11 +26,14 @@ import android.widget.ImageView;
 
 import com.example.android.android_me.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BodyPartFragment extends Fragment {
 
-    // TODO (3) Create final Strings to store state information about the list of images and list index
+    // DONE (3) Create final Strings to store state information about the list of images and list index
+    private static final String IMAGE_ID_LIST = "image_ids";
+    private static final String LIST_INDEX = "list_index";
 
     // Tag for logging
     private static final String TAG = "BodyPartFragment";
@@ -94,5 +97,10 @@ public class BodyPartFragment extends Fragment {
         mListIndex = index;
     }
 
-    // TODO (4) Override onSaveInstanceState and save the current state of this fragment
+    // DONE (4) Override onSaveInstanceState and save the current state of this fragment
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putIntegerArrayList(IMAGE_ID_LIST, (ArrayList<Integer>) mImageIds);
+        outState.putInt(LIST_INDEX, mListIndex);
+    }
 }
