@@ -72,7 +72,8 @@ public class BodyPartFragment extends Fragment {
                     imageView.setImageResource(mImageIds.get(mListIndex));
                 }
             });
-            // TODO (2) If you reach the end of a list of images, set the list index back to 0 (the first item in the list)
+
+            // DONE (2) If you reach the end of a list of images, set the list index back to 0 (the first item in the list)
 
         } else {
             Log.v(TAG, "This fragment has a null list of image id's");
