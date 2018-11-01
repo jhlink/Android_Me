@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
         if (findViewById(R.id.android_me_linear_layout) != null) {
             mTwoPane = true;
 
-            findViewById(R.id.nextButton).setVisibility(View.GONE);
+            findViewById(R.id.next_button).setVisibility(View.GONE);
 
             FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
         // Create a Toast that displays the position that was clicked
         Toast.makeText(this, "Position clicked = " + position, Toast.LENGTH_SHORT).show();
 
-        // TODO (5) Handle the two-pane case and replace existing fragments right when a new image is selected from the master list
+        // DONE (5) Handle the two-pane case and replace existing fragments right when a new image is selected from the master list
         // The two-pane case will not need a Bundle or Intent since a new activity will not be started;
         // This is all happening in this MainActivity and one fragment will be replaced at a time
 
@@ -108,15 +108,51 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
         // This ensures that the index will always be a value between 0-11
         int listIndex = position - 12*bodyPartNumber;
 
-        // Set the currently displayed item for the correct body part fragment
-        switch(bodyPartNumber) {
-            case 0: headIndex = listIndex;
-                break;
-            case 1: bodyIndex = listIndex;
-                break;
-            case 2: legIndex = listIndex;
-                break;
-            default: break;
+        if (mTwoPane) {
+            BodyPartFragment newFragment = new BodyPartFragment();
+            switch (bodyPartNumber) {
+                case 0:
+                    newFragment.setImageIds(AndroidImageAssets.getHeads());
+                    newFragment.setListIndex(listIndex);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.head_container, newFragment)
+                            .commit();
+                    break;
+
+                case 1:
+                    newFragment.setImageIds(AndroidImageAssets.getBodies());
+                    newFragment.setListIndex(listIndex);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.body_container, newFragment)
+                            .commit();
+                    break;
+
+                case 2:
+                    newFragment.setImageIds(AndroidImageAssets.getLegs());
+                    newFragment.setListIndex(listIndex);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.leg_container, newFragment)
+                            .commit();
+                    break;
+
+                default:
+                    break;
+            }
+        } else {
+            // Set the currently displayed item for the correct body part fragment
+            switch (bodyPartNumber) {
+                case 0:
+                    headIndex = listIndex;
+                    break;
+                case 1:
+                    bodyIndex = listIndex;
+                    break;
+                case 2:
+                    legIndex = listIndex;
+                    break;
+                default:
+                    break;
+            }
         }
 
         // Put this information in a Bundle and attach it to an Intent that will launch an AndroidMeActivity
